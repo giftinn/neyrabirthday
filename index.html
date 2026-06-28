@@ -662,48 +662,93 @@ async function startMic(){
   try{
 
     const stream = await navigator.mediaDevices.getUserMedia({
-      audio:true
+      audio:{
+        echoCancellation:false,
+        noiseSuppression:false,
+        autoGainControl:false
+      }
     });
 
-    const audioContext = new AudioContext();
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
     const mic = audioContext.createMediaStreamSource(stream);
+
     const analyser = audioContext.createAnalyser();
+
+    analyser.fftSize = 1024;
 
     mic.connect(analyser);
 
-    analyser.fftSize = 256;
+    const data = new Uint8Array(analyser.fftSize);
 
-    const data = new Uint8Array(
-      analyser.frequencyBinCount
-    );
+    let ambient = 0;
+    let calibrated = false;
+    let samples = 0;
 
     function detect(){
 
-      analyser.getByteFrequencyData(data);
+      analyser.getByteTimeDomainData(data);
 
-      const volume =
-      data.reduce((a,b)=>a+b) / data.length;
+      let sum = 0;
 
-      if(
-        volume > 60 &&
-        !blown &&
-        currentLayer >= wishes.length
-      ){
-        blowCandles();
+      for(let i=0;i<data.length;i++){
+
+        const x = (data[i]-128)/128;
+
+        sum += x*x;
+
+      }
+
+      const rms = Math.sqrt(sum/data.length);
+
+      // Kalibrasi suara ruangan selama ±1 detik
+      if(!calibrated){
+
+        ambient += rms;
+        samples++;
+
+        if(samples >= 60){
+
+          ambient /= samples;
+          calibrated = true;
+
+          console.log("Ambient:", ambient);
+
+        }
+
+      }else{
+
+        const threshold = ambient + 0.05;
+
+        if(
+          rms > threshold &&
+          !blown &&
+          currentLayer >= wishes.length
+        ){
+
+          console.log("Blow detected!", rms);
+
+          blowCandles();
+
+        }
+
       }
 
       requestAnimationFrame(detect);
+
     }
 
     detect();
 
   }catch(err){
+
     console.log("Mic permission denied");
+
   }
+
 }
 
 startMic();
-
 function glitterExplosion(){
 
   for(let i=0;i<150;i++){
