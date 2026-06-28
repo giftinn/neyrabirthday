@@ -18,7 +18,7 @@
 }
 
 body{
-  min-height:100vh;
+ min-height:100vh;
   overflow-x:hidden;
   overflow-y:auto;
   display:flex;
@@ -27,14 +27,10 @@ body{
   flex-direction:column;
   font-family:'Inter',sans-serif;
   background:
-  radial-gradient(circle at top left,#f7e2c6 0%,transparent 40%),
-  radial-gradient(circle at bottom right,#c79572 0%,transparent 35%),
-  linear-gradient(180deg,#efd4ba,#cda98a);
+  radial-gradient(circle at top left,#FFF7FA 0%,transparent 42%),
+  radial-gradient(circle at bottom right,#F6C9DA 0%,transparent 38%),
+  linear-gradient(180deg,#FFEAF2,#F4C3D4);
 }
-
-/* =========================
-   SCENE
-========================= */
 
 .scene{
   position:relative;
@@ -53,10 +49,10 @@ body{
   font-size:65px;
   font-family:"Cormorant Garamond",serif;
   font-weight:600;
-  color:#4f2418;
+  color:#6D4355;
   letter-spacing:2px;
   text-shadow:
-  0 4px 20px rgba(0,0,0,.12);
+  0 4px 20px rgba(109,67,85,.15);
   z-index:5;
   text-align:center;
   width:100%;
@@ -66,16 +62,12 @@ body{
   position:absolute;
   bottom:45px;
   font-size:18px;
-  font-weight: bolder;
+  font-weight:bolder;
   letter-spacing:2px;
-  color:rgba(79,36,24,.75);
+  color:rgba(109,67,85,.75);
   font-family:"Inter",sans-serif;
   z-index:5;
 }
-
-/* =========================
-   CAKE
-========================= */
 
 .cake{
   position:relative;
@@ -83,55 +75,43 @@ body{
   height:250px;
 }
 
-/* =========================
-   PLATE
-========================= */
-
 .plate{
   width:270px;
   height:110px;
   position:absolute;
   top:235px;
-  left:-10px; 
-  z-index: -7;
-  background:#ccc;
+  left:-10px;
+  z-index:-7;
+  background:#F5E7EE;
   border-radius:50%;
   box-shadow:
-  0 5px 40px rgba(0,0,0,0.5);
+  0 8px 35px rgba(136,94,116,.25);
 }
 
-/* =========================
-   BASE LAYER
-========================= */
-
 .layer{
-  position:absolute;
+    position:absolute;
   display:block;
   width:250px;
   height:100px;
   border-radius:50%;
-  background-color:#6b3e2e;
+  background-color:#D98FA6;
   box-shadow:
-    0 2px 0px #5a3325,
-    0 4px 0px #4b2a1f,
-    0 6px 0px #4b2a1f,
-    0 8px 0px #4b2a1f,
-    0 10px 0px #4b2a1f,
-    0 12px 0px #4b2a1f,
-    0 14px 0px #4b2a1f,
-    0 16px 0px #4b2a1f,
-    0 18px 0px #4b2a1f,
-    0 20px 0px #4b2a1f,
-    0 22px 0px #4b2a1f,
-    0 24px 0px #4b2a1f,
-    0 26px 0px #4b2a1f,
-    0 28px 0px #4b2a1f,
-    0 30px 0px #4b2a1f;
+    0 2px 0px #C77893,
+    0 4px 0px #BA6E88,
+    0 6px 0px #BA6E88,
+    0 8px 0px #BA6E88,
+    0 10px 0px #BA6E88,
+    0 12px 0px #BA6E88,
+    0 14px 0px #BA6E88,
+    0 16px 0px #BA6E88,
+    0 18px 0px #BA6E88,
+    0 20px 0px #BA6E88,
+    0 22px 0px #BA6E88,
+    0 24px 0px #BA6E88,
+    0 26px 0px #BA6E88,
+    0 28px 0px #BA6E88,
+    0 30px 0px #BA6E88;
 }
-
-/* =========================
-   TOP CAKE
-========================= */
 
 .top-cake{
   position:absolute;
@@ -142,10 +122,6 @@ body{
   transition:
   transform .9s cubic-bezier(.22,1,.36,1);
 }
-
-/* =========================
-   STACKING
-========================= */
 
 .layer-top{
   top:0px;
@@ -186,30 +162,22 @@ body{
   top:231px;
 }
 
-/* =========================
-   ICING
-========================= */
-
 .icing{
   top:2px;
   left:5px;
-  background:#f8f1e7;
+  background:#FFF8FC;
   width:240px;
   height:90px;
   border-radius:50%;
   position:absolute;
 }
 
-/* =========================
-   DRIPS
-========================= */
-
 .drip{
   width:50px;
   height:60px;
   border-bottom-left-radius:25px;
   border-bottom-right-radius:25px;
-  background:#f8f1e7;
+  background:#FFF8FC;
   position:absolute;
 }
 
@@ -235,10 +203,6 @@ body{
   border-bottom-right-radius:40px;
 }
 
-/* =========================
-   WISH LAYER
-========================= */
-
 .wish-layer{
   cursor:pointer;
   transition:
@@ -261,12 +225,8 @@ body{
   pointer-events:none;
 }
 
-/* =========================
-   CANDLES
-========================= */
-
 .candle{
-  background:#7B020B;
+  background:#D86D98;
   width:20px;
   height:60px;
   border-radius:8px;
@@ -294,10 +254,6 @@ body{
   translateX(-50%)
   translateX(35px);
 }
-
-/* =========================
-   FLAME
-========================= */
 
 .flame{
   position:absolute;
@@ -337,10 +293,6 @@ body{
 
 }
 
-/* =========================
-   CARD
-========================= */
-
 .wish-card{
   position:absolute;
   top:50%;
@@ -355,12 +307,12 @@ body{
   padding:36px;
   border-radius:36px;
   background:
-  rgba(255,248,238,.30);
+  rgba(255,248,252,.45);
   backdrop-filter:blur(18px);
   border:
-  1px solid rgba(255,255,255,.18);
+  1px solid rgba(255,255,255,.35);
   box-shadow:
-  0 20px 45px rgba(0,0,0,.18);
+  0 20px 45px rgba(160,110,132,.18);
   text-align:center;
   opacity:0;
   pointer-events:none;
@@ -381,7 +333,7 @@ body{
 .wish-label{
   font-size:14px;
   letter-spacing:4px;
-  color:#87383b;
+  color:#B35C82;
   font-weight:600;
 }
 
@@ -389,7 +341,7 @@ body{
   width:180px;
   height:1px;
   background:
-  rgba(135,56,59,.22);
+  rgba(179,92,130,.25);
   margin:18px auto 30px;
   position:relative;
 }
@@ -400,24 +352,24 @@ body{
   left:50%;
   top:-12px;
   transform:translateX(-50%);
-  color:#a43a46;
+  color:#D86D98;
   background:
-  rgba(255,248,238,.8);
+  rgba(255,248,252,.95);
   padding:0 10px;
 }
 
 .wish-mode{
   font-size:45px;
   line-height:1.08;
-  color: #552525;
+  color: #6D4355;
 }
 
 .letter-mode{
   font-size:26px;
   line-height:1.8;
   text-align:left;
-  color: #000000;
-  font-weight: bold;
+  color:#47333D;
+  font-weight:bold;
 }
 
 .wish-text{
@@ -428,33 +380,24 @@ body{
     transition: .3s;
 }
 
-/* =========================
-   BUTTON
-========================= */
-
 .wish-btn{
   margin-top:25px;
   border:none;
   padding:15px 25px;
   border-radius:999px;
   background:
-  linear-gradient(135deg,
-  #b33241,
-  #821626);
+  linear-gradient(135deg,#E88DB3,#CF5D8C);
   color:white;
   font-size:20px;
-  font-family: "Cormorant Garamond", serif;
+  font-family:"Cormorant Garamond",serif;
   cursor:pointer;
   transition:.3s;
 }
 
 .wish-btn:hover{
   transform:translateY(-3px);
+  box-shadow:0 8px 25px rgba(232,141,179,.35);
 }
-
-/* =========================
-   GLITTER
-========================= */
 
 .glitter{
   position:absolute;
@@ -473,10 +416,6 @@ body{
     opacity:0;
   }
 }
-
-/* =========================
-   MOBILE
-========================= */
 
 @media(max-width:768px){
 
@@ -528,14 +467,13 @@ body{
 
   <div class="cake">
     <div class="plate"></div>
-    <!-- TOP CAKE -->
     <div class="top-cake" id="topCake">
       <div class="layer layer-top"></div>
       <div class="icing"></div>
       <div class="drip drip1"></div>
       <div class="drip drip2"></div>
       <div class="drip drip3"></div>
-      <!-- CANDLES -->
+  
       <div class="candle c1">
         <div class="flame"></div>
       </div>
@@ -559,8 +497,6 @@ body{
       tap every layer of the cake to see the wishes
     </p>
 
-  <!-- CARD -->
-
   <div class="wish-card" id="wishCard">
     <div class="wish-label" id="wishLabel">
       WISH 1 / 5
@@ -581,9 +517,6 @@ body{
 </audio>
 
 <script>
-/* =========================
-   WISHES
-========================= */
 
 const wishes = [
   "I hope this year feels lighter for you.",
@@ -676,8 +609,7 @@ function closeCard(){
   if(currentLayer >= wishes.length){
 
     nextBtn.innerHTML = "Blow Candles";
-
-    // volume dikecilin pas siap niup
+    
     bgMusic.volume = 0.15;
   }
 }
